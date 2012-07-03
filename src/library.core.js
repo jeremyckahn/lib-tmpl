@@ -30,6 +30,11 @@ if (typeof DEBUG === 'undefined') {
 function noop () { }
 
 
+/**
+ * @param {Object} The Object that the library gets attached to in
+ * library.init.js.  If the library was not loaded with an AMD loader such as
+ * require.js, this is the global Object.
+ */
 function libraryCore (context) {
 
 
@@ -38,7 +43,7 @@ function libraryCore (context) {
 
 
   // An example of a CONSTANT variable;
-  var MY_AWESOME_CONSTANT = true;
+  var CORE_CONSTANT = true;
 
 
   // PRIVATE MODULE METHODS
@@ -49,11 +54,11 @@ function libraryCore (context) {
 
   /**
    *  An example of a private method.  Feel free to remove this.
-   *  @param {number} myAwesomeNumber This is a parameter description.
+   *  @param {number} aNumber This is a parameter description.
    *  @returns {number} This is a return value description.
    */
-  function myAwesomePrivateMethod (myAwesomeNumber) {
-    return myAwesomeNumber;
+  function corePrivateMethod (aNumber) {
+    return aNumber;
   }
 
 
