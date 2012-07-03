@@ -1,4 +1,5 @@
-# ext
+# Extensions
 
-This is the "externals" directory.  If your library depends on any external
-libraries, those go here.
+If your library has any optional extension modules that are not required for
+basic use, those go here.  The files here should be combined into a single
+binary at build time.
