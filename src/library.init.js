@@ -1,4 +1,4 @@
-var library = function (global, loadedViaAMD) {
+var initLibrary = function (global, loadedViaAMD) {
 
   // Prevent Library from being attached to the global Object if it was loaded
   // via an AMD loader.
@@ -22,10 +22,10 @@ if (typeof define === 'function' && define.amd) {
 
   // Expose Library as an AMD module if it's loaded with RequireJS or similar.
   //
-  // The library module is anonymous so that it can be required with any name.
-  // Example: define(['lib/library.min'], function(Library) { ... });
+  // The initLibrary module is anonymous so that it can be required with any
+  // name.  Example: define(['lib/library.min'], function(Library) { ... });
   define(function (Tweenable, Underscore) {
-    return library(global, true);
+    return initLibrary(global, true);
   });
 } else {
   // Load Library normally (creating a Library global) if not using an AMD
@@ -33,5 +33,5 @@ if (typeof define === 'function' && define.amd) {
 
   // Note: `global` is not defined when running unit tests. Pass `this`
   // instead.
-  library(typeof global !== 'undefined' ? global : this);
+  initLibrary(typeof global !== 'undefined' ? global : this);
 }
