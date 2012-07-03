@@ -2,7 +2,16 @@
 'use strict';
 
 
-// LIBRARY-GLOBAL METHODS AND PROPERTIES
+// LIBRARY-GLOBAL CONSTANTS
+//
+// These constants are exposed to all library modules.
+
+
+// GLOBAL is a reference to the global Object.
+var Fn = Function, GLOBAL = Fn('return this')();
+
+
+// LIBRARY-GLOBAL METHODS
 //
 // The methods here are exposed to all library modules.  Because all of the
 // source files are wrapped within a closure at build time, they are not
@@ -14,10 +23,6 @@ if (typeof DEBUG === 'undefined') {
   var DEBUG = true;
 }
 
-// GLOBAL is read from for various environment properties.  It should not be
-// written to.
-var Fn = Function, GLOBAL = Fn('return this')();
-
 
 /**
  * A no-op function.  Useful for passing around as a default callback.
@@ -26,5 +31,63 @@ function noop () { }
 
 
 function libraryCore (context) {
+
+
+  // PRIVATE MODULE CONSTANTS
+  //
+
+
+  // An example of a CONSTANT variable;
+  var MY_AWESOME_CONSTANT = true;
+
+
+  // PRIVATE MODULE METHODS
+  //
+  // These do not get attached to the prototype of the method.  They are
+  // private utility functions.
+
+
+  /**
+   *  An example of a private method.  Feel free to remove this.
+   *  @param {number} myAwesomeNumber This is a parameter description
+   *  @returns {number} This is a return value description
+   */
+  function myAwesomePrivateMethod (myAwesomeNumber) {
+    return myAwesomeNumber;
+  }
+
+
+  /**
+   * This is the constructor for the library function.  Please rename it to
+   * whatever your library's name is.
+   * @param {Object} opt_config Contains any properties that should be used to
+   * configure this instance of the library.
+   * @constructor
+   */
+  function Library (opt_config) {
+
+    opt_config = opt_config || {};
+
+    // INSTANCE PROPERTY SETUP
+    //
+    // Your library likely has some instance-specific properties.  The value of
+    // these properties can depend on any number of things, such as properties
+    // passed in via opt_config or global state.  Whatever the case, the value
+    // should be set in this constructor.
+
+    // Instance variables that have an underscore prepended mean that should
+    // not be modified outside of the library.  They can be freely modified by
+    // library methods, however.  If an instance variable will likely be
+    // accessed outside of the library, consider making a public getter
+    // function for it.
+    this._readOnlyVar = true;
+
+    // Instance variables that do not have an underscore prepended are
+    // considered to be part of the library's public API.  External code may
+    // change the value of these variables freely.
+    this.readAndWrite = true;
+
+    return this;
+  }
 
 }
