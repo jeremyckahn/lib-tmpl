@@ -124,7 +124,8 @@ ast = pro.ast_mangle(ast, {
   });
 ast = pro.ast_squeeze(ast);
 
-_fs.writeFileSync(_distFileNameMin, getLicense() + pro.gen_code(ast) );
+_fs.writeFileSync(_distFileNameMin,
+    getLicense() + ';' + pro.gen_code(ast) + ';');
 
 echoFileSize(_distFileNameMin, '   Yay!  Library was built.');
 
