@@ -18,7 +18,7 @@ var Fn = Function, GLOBAL = Fn('return this')();
 // exposed globally in the distributable binaries.
 
 
-// compile-time define for UglifyJS
+// Compile-time define for UglifyJS.
 if (typeof DEBUG === 'undefined') {
   var DEBUG = true;
 }
@@ -49,8 +49,8 @@ function libraryCore (context) {
 
   /**
    *  An example of a private method.  Feel free to remove this.
-   *  @param {number} myAwesomeNumber This is a parameter description
-   *  @returns {number} This is a return value description
+   *  @param {number} myAwesomeNumber This is a parameter description.
+   *  @returns {number} This is a return value description.
    */
   function myAwesomePrivateMethod (myAwesomeNumber) {
     return myAwesomeNumber;
@@ -80,14 +80,45 @@ function libraryCore (context) {
     // library methods, however.  If an instance variable will likely be
     // accessed outside of the library, consider making a public getter
     // function for it.
-    this._readOnlyVar = true;
+    this._readOnlyVar = 'read only';
 
     // Instance variables that do not have an underscore prepended are
     // considered to be part of the library's public API.  External code may
     // change the value of these variables freely.
-    this.readAndWrite = true;
+    this.readAndWrite = 'read and write';
 
     return this;
   }
+
+
+  // LIBRARY PROTOTYPE METHODS
+  //
+  // These methods define the public API.
+
+
+  /**
+   * An example of a protoype method.
+   * @return {string}
+   */
+  Library.prototype.getReadOnlyVar = function () {
+    return this._readOnlyVar;
+  };
+
+
+  /**
+   * This is an example of a chainable method.  That means that the return
+   * value of this function is the library instance itself.  Chaining lets you
+   * do chained method calls like this:
+   *
+   * var myLibrary = new Library();
+   * myLibrary
+   *   .chainableMethod()
+   *   .chainableMethod();
+   *
+   * @return {Library}
+   */
+  Library.prototye.chainableMethod = function () {
+    return this;
+  };
 
 }
