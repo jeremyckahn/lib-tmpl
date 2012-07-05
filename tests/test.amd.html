@@ -35,7 +35,7 @@
 
     asyncTest('Can load the minified version of Library', function() {
       requireConfig({
-        rekapi: '../dist/library.min'
+        library: '../dist/library.min'
       });
 
       require(['library'], function(Library) {
@@ -58,12 +58,11 @@
 </script>
 </head>
 <body>
-<h1 id="qunit-header"><a href="https://github.com/jeremyckahn/rekapi">Rekapi</a></h1>
+<h1 id="qunit-header">Library</h1>
  <h2 id="qunit-banner"></h2>
  <div id="qunit-testrunner-toolbar"></div>
  <h2 id="qunit-userAgent"></h2>
  <ol id="qunit-tests"></ol>
  <div id="qunit-fixture"></div>
-<canvas id="sandbox"></canvas>
 </body>
 </html>
