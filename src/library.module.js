@@ -69,4 +69,15 @@ function libraryModule (context) {
     return this._readOnlyVar;
   };
 
+
+  // DEBUGGING CODE
+  //
+  // Each module can have its own debugging section.  They all get compiled out
+  // of the binary anyways.
+
+
+  if (DEBUG) {
+
+  }
+
 }

@@ -1,7 +1,7 @@
 /*jslint browser: true, nomen: true, plusplus: true, undef: true, vars: true, white: true */
 /**
  * Library Template
- * v0.0.1 (Thu, 05 Jul 2012 15:14:08 GMT)
+ * v0.0.1 (Thu, 05 Jul 2012 15:29:07 GMT)
  *
  * By Jeremy Kahn
  *
@@ -220,6 +220,17 @@ function libraryModule (context) {
     // the `this` keyword.
     return this._readOnlyVar;
   };
+
+
+  // DEBUGGING CODE
+  //
+  // Each module can have its own debugging section.  They all get compiled out
+  // of the binary anyways.
+
+
+  if (DEBUG) {
+
+  }
 
 }
 var initLibrary = function (global, loadedViaAMD) {
