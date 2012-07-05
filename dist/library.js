@@ -1,7 +1,7 @@
 /*jslint browser: true, nomen: true, plusplus: true, undef: true, vars: true, white: true */
 /**
  * Library Template
- * v0.0.1 (Thu, 05 Jul 2012 16:00:10 GMT)
+ * v0.0.1 (Thu, 05 Jul 2012 16:49:31 GMT)
  *
  * By Jeremy Kahn
  *
@@ -80,7 +80,7 @@ function libraryCore (context) {
    * configure this instance of the library.
    * @constructor
    */
-  context.Library = function Library (opt_config) {
+  var Library = context.Library = function (opt_config) {
 
     opt_config = opt_config || {};
 

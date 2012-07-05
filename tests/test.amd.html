@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="qunit/qunit.css" rel="stylesheet" type="text/css" />
+  <script src="qunit/qunit.js"></script>
+  <script src="../lib/jquery.js"></script>
+  <!--
+  This RequireJS script is patched to add an undef() method. This allows this test suite to clean up loaded modules after each test.
+  Otherwise, it's not possible to successively load modules with the same name but different paths via multiple require.config() calls.
+
+  Some code borrowed from: https://github.com/jrburke/requirejs/commit/c8a6636f08ca552cbff3843f27eab8825e33fab9
+  -->
+  <script src="../lib/require-1.0.7+undef.js"></script>
+  <script>
+
+  function requireConfig(path_opts) {
+    var paths = $.extend({
+      library: '../dist/library'
+    }, path_opts || {});
+
+    require.config({
+      paths: paths
+    });
+  }
+
+  $(document).ready(function() {
+
+    module('Loading with RequireJS', {
+      teardown: function() {
+        $('head').find('script[data-requiremodule]').remove();
+        require.undef('library');
+      }
+    });
+
+
+    asyncTest('Can load the minified version of Library', function() {
+      requireConfig({
+        rekapi: '../dist/library.min'
+      });
+
+      require(['library'], function(Library) {
+        ok(Library !== undefined);
+        start();
+      });
+    });
+
+
+    asyncTest('Global scope is not polluted by Library', function() {
+      requireConfig();
+
+      require(['library'], function(Kapi) {
+        ok(window.Library === undefined);
+        start();
+      });
+    });
+
+  });
+</script>
+</head>
+<body>
+<h1 id="qunit-header"><a href="https://github.com/jeremyckahn/rekapi">Rekapi</a></h1>
+ <h2 id="qunit-banner"></h2>
+ <div id="qunit-testrunner-toolbar"></div>
+ <h2 id="qunit-userAgent"></h2>
+ <ol id="qunit-tests"></ol>
+ <div id="qunit-fixture"></div>
+<canvas id="sandbox"></canvas>
+</body>
+</html>

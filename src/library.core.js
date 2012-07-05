@@ -70,7 +70,7 @@ function libraryCore (context) {
    * configure this instance of the library.
    * @constructor
    */
-  context.Library = function Library (opt_config) {
+  var Library = context.Library = function (opt_config) {
 
     opt_config = opt_config || {};
 
