@@ -107,5 +107,7 @@ project!
 
 You can add modules to this library.  You can think of `src/library.module.js`
 as a generic module template.  Simply copy that file and modify as needed.  To
-add the module to the build script, add the file to `CORE_FILE_LIST`.  Make
-sure to reference it in any test files, such as `test/test.library.html`.
+initialize the module, add its `init` wrapper function to `src/library.init.js`
+(there's a note in the comments where to do this).  To add the module to the
+build script, add the file to `CORE_FILE_LIST`.  Make sure to reference it in
+any test files, such as `test/test.library.html`.

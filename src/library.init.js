@@ -4,14 +4,14 @@ var initLibrary = function (global, loadedViaAMD) {
   // via an AMD loader.
   var context = loadedViaAMD ? {} : global;
 
-  libraryCore(context);
-  libraryModule(context);
+  initLibraryCore(context);
+  initLibraryModule(context);
   // Add a similar line as above for each module that you have.  If you have a
   // module named "Awesome module," it should live in the file
   // "src/library.awesome-module.js" with a wrapper function named
-  // "awesomeModule".  That function should then be invoked here with:
+  // "initAwesomeModule".  That function should then be invoked here with:
   //
-  // awesomeModule(context);
+  // initAwesomeModule(context);
 
   return context.Library;
 };

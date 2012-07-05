@@ -1,7 +1,7 @@
 /*jslint browser: true, nomen: true, plusplus: true, undef: true, vars: true, white: true */
 /**
  * Library Template
- * v0.0.1 (Thu, 05 Jul 2012 16:49:31 GMT)
+ * v0.0.1 (Thu, 05 Jul 2012 19:57:02 GMT)
  *
  * By Jeremy Kahn
  *
@@ -41,11 +41,12 @@ function noop () { }
 
 
 /**
+ * Init wrapper for the core module.
  * @param {Object} The Object that the library gets attached to in
  * library.init.js.  If the library was not loaded with an AMD loader such as
  * require.js, this is the global Object.
  */
-function libraryCore (context) {
+function initLibraryCore (context) {
 
 
   // PRIVATE MODULE CONSTANTS
@@ -160,7 +161,7 @@ function libraryCore (context) {
 // Note:  You should name this module something unique.  If you end up
 // copy/pasting this file, the last function defined will clobber the previous
 // one.
-function libraryModule (context) {
+function initLibraryModule (context) {
 
   var Library = context.Library;
 
@@ -240,14 +241,14 @@ var initLibrary = function (global, loadedViaAMD) {
   // via an AMD loader.
   var context = loadedViaAMD ? {} : global;
 
-  libraryCore(context);
-  libraryModule(context);
+  initLibraryCore(context);
+  initLibraryModule(context);
   // Add a similar line as above for each module that you have.  If you have a
   // module named "Awesome module," it should live in the file
   // "src/library.awesome-module.js" with a wrapper function named
-  // "awesomeModule".  That function should then be invoked here with:
+  // "initAwesomeModule".  That function should then be invoked here with:
   //
-  // awesomeModule(context);
+  // initAwesomeModule(context);
 
   return context.Library;
 };

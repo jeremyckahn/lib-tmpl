@@ -31,11 +31,12 @@ function noop () { }
 
 
 /**
+ * Init wrapper for the core module.
  * @param {Object} The Object that the library gets attached to in
  * library.init.js.  If the library was not loaded with an AMD loader such as
  * require.js, this is the global Object.
  */
-function libraryCore (context) {
+function initLibraryCore (context) {
 
 
   // PRIVATE MODULE CONSTANTS

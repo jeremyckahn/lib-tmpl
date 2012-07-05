@@ -7,7 +7,7 @@
 // Note:  You should name this module something unique.  If you end up
 // copy/pasting this file, the last function defined will clobber the previous
 // one.
-function libraryModule (context) {
+function initLibraryModule (context) {
 
   var Library = context.Library;
 
