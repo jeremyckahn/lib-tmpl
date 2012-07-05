@@ -5,9 +5,11 @@
   <script src="qunit/qunit.js"></script>
   <!-- Add source files here as necessary.  There are the raw source files,
   and they have not been compiled of wrapped in a closure.  Include them in the
-  order that they should be included in. -->
+  order that they should be included in.  If you are following the template's
+  pattern, the init file MUST be loaded last. -->
   <script src="../src/library.core.js"></script>
   <script src="../src/library.module.js"></script>
+  <script src="../src/library.init.js"></script>
   <script>
   </script>
 </head>
@@ -18,5 +20,32 @@
    <h2 id="qunit-userAgent"></h2>
    <ol id="qunit-tests"></ol>
    <div id="qunit-fixture"></div>
+   <script>
+   (function () {
+
+     module('Public API');
+
+
+     test('Can get the read-only property', function () {
+       var library = new Library();
+       var readOnly = library.getReadOnlyVar();
+
+       equal(readOnly, 'read only',
+           'Read-only variable was read');
+     });
+
+
+     module('Private API');
+
+
+     test('Can return a number with corePrivateMethod', function () {
+       var returnedNumber = corePrivateMethod(5);
+
+       equal(returnedNumber, 5,
+           'The number provided was the number returned');
+     });
+
+   } ());
+   </script>
 </body>
 </html>

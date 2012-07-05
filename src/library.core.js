@@ -63,13 +63,14 @@ function libraryCore (context) {
 
 
   /**
-   * This is the constructor for the library function.  Please rename it to
-   * whatever your library's name is.
+   * This is the constructor for the Library function.  Please rename it to
+   * whatever your library's name is.  Note that the constructor is also being
+   * attached to the context that the library was loaded in.
    * @param {Object} opt_config Contains any properties that should be used to
    * configure this instance of the library.
    * @constructor
    */
-  function Library (opt_config) {
+  context.Library = function Library (opt_config) {
 
     opt_config = opt_config || {};
 
@@ -122,7 +123,7 @@ function libraryCore (context) {
    *
    * @return {Library}
    */
-  Library.prototye.chainableMethod = function () {
+  Library.prototype.chainableMethod = function () {
     return this;
   };
 
