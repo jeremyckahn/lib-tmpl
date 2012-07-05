@@ -119,7 +119,7 @@ var
 
 ast = pro.ast_mangle(ast, {
     'defines': {
-      'DEBUG': ['name', false ]
+      'DEBUG': ['name', 'false' ]
     }
   });
 ast = pro.ast_squeeze(ast);

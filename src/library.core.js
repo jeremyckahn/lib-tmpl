@@ -20,7 +20,7 @@ var Fn = Function, GLOBAL = Fn('return this')();
 
 // Compile-time define for UglifyJS.
 if (typeof DEBUG === 'undefined') {
-  var DEBUG = true;
+  DEBUG = true;
 }
 
 
@@ -125,5 +125,18 @@ function libraryCore (context) {
   Library.prototye.chainableMethod = function () {
     return this;
   };
+
+
+  // DEBUGGING CODE
+  //
+  // With compile-time defines, you can wrap code in a conditional check to
+  // ensure that it does not get included in the compiled binaries.  This is
+  // useful for exposing certain properties and methods that are needed during
+  // development and testing, but should be private in the compiled binaries.
+
+
+  if (DEBUG) {
+    GLOBAL.corePrivateMethod = corePrivateMethod;
+  }
 
 }

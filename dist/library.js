@@ -1,7 +1,7 @@
 /*jslint browser: true, nomen: true, plusplus: true, undef: true, vars: true, white: true */
 /**
  * Library Template
- * v0.0.1 (Tue, 03 Jul 2012 23:55:06 GMT)
+ * v0.0.1 (Thu, 05 Jul 2012 15:14:08 GMT)
  *
  * By Jeremy Kahn
  *
@@ -30,7 +30,7 @@ var Fn = Function, GLOBAL = Fn('return this')();
 
 // Compile-time define for UglifyJS.
 if (typeof DEBUG === 'undefined') {
-  var DEBUG = true;
+  DEBUG = true;
 }
 
 
@@ -135,6 +135,19 @@ function libraryCore (context) {
   Library.prototye.chainableMethod = function () {
     return this;
   };
+
+
+  // DEBUGGING CODE
+  //
+  // With compile-time defines, you can wrap code in a conditional check to
+  // ensure that it does not get included in the compiled binaries.  This is
+  // useful for exposing certain properties and methods that are needed during
+  // development and testing, but should be private in the compiled binaries.
+
+
+  if (DEBUG) {
+    GLOBAL.corePrivateMethod = corePrivateMethod;
+  }
 
 }
 // Your library may have many modules.  How you organize the modules is up to
