@@ -45,7 +45,7 @@ function initLibraryModule (context) {
 
 
   /**
-   * An example of a static Library property.  This particular  static property
+   * An example of a static Library property.  This particular static property
    * is also a base Object.  What static properties you use are up to you.
    * @constructor
    */

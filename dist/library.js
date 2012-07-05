@@ -1,14 +1,14 @@
 /*jslint browser: true, nomen: true, plusplus: true, undef: true, vars: true, white: true */
 /**
  * Library Template
- * v0.0.1 (Thu, 05 Jul 2012 19:57:02 GMT)
+ * v0.0.1 (Thu, 05 Jul 2012 20:02:49 GMT)
  *
  * By Jeremy Kahn
  *
  * MIT Lincense.
  */
 ;(function (global) {
-// Compile-time define for UglifyJS.
+// Compiler directive for UglifyJS.
 if (typeof DEBUG === 'undefined') {
   DEBUG = true;
 }
@@ -141,7 +141,7 @@ function initLibraryCore (context) {
 
   // DEBUGGING CODE
   //
-  // With compile-time defines, you can wrap code in a conditional check to
+  // With compiler directives, you can wrap code in a conditional check to
   // ensure that it does not get included in the compiled binaries.  This is
   // useful for exposing certain properties and methods that are needed during
   // development and testing, but should be private in the compiled binaries.
@@ -199,7 +199,7 @@ function initLibraryModule (context) {
 
 
   /**
-   * An example of a static Library property.  This particular  static property
+   * An example of a static Library property.  This particular static property
    * is also a base Object.  What static properties you use are up to you.
    * @constructor
    */

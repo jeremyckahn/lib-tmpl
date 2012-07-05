@@ -1,4 +1,4 @@
-// Compile-time define for UglifyJS.
+// Compiler directive for UglifyJS.
 if (typeof DEBUG === 'undefined') {
   DEBUG = true;
 }
@@ -131,7 +131,7 @@ function initLibraryCore (context) {
 
   // DEBUGGING CODE
   //
-  // With compile-time defines, you can wrap code in a conditional check to
+  // With compiler directives, you can wrap code in a conditional check to
   // ensure that it does not get included in the compiled binaries.  This is
   // useful for exposing certain properties and methods that are needed during
   // development and testing, but should be private in the compiled binaries.
