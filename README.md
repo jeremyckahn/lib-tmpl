@@ -6,8 +6,7 @@ project aims to define an opinionated pattern for organizing, building, and
 testing code.
 
 Don't be afraid to change any code or conventions in this project, it's simply
-an educational project tool meant to give direction when writing JavaScript
-libraries.
+an educational tool meant to give direction when writing JavaScript libraries.
 
 I created this skeleton project out of what I learned with my projects
 [Rekapi](https://github.com/jeremyckahn/rekapi) and
@@ -45,8 +44,8 @@ As your library grows, it helps to separate code into files.  This serves to
 keep large amounts of code manageable, and it also makes collaboration easier
 by mitigating merge conflicts.  A project must have one core module, and any
 number of additional modules.  Modules should be organized by the task they
-are trying to perform.  For instance, if you have a set of methods that do DOM
-manipulation, those should be isolated into a single module.
+perform.  For instance, if you have a set of methods that do DOM manipulation,
+those should be isolated into a single module.
 
 ### Basic build process
 
@@ -100,3 +99,13 @@ default.  You'll need to change the name of the constructor (in
 `src/library.core.js`) and all references to that constructor in the code and
 comments.  It's also a good idea to change the file names to reference the
 actual name of your library, rather than the generic "library."
+
+Don't forget to update `src/library.license.js` to reflect you and your
+project!
+
+## Adding modules
+
+You can add modules to this library.  You can think of `src/library.module.js`
+as a generic module template.  Simply copy that file and modify as needed.  To
+add the module to the build script, add the file to `CORE_FILE_LIST`.  Make
+sure to reference it in any test files, such as `test/test.library.html`.

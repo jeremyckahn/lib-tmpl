@@ -14,8 +14,8 @@ var
     'src/library.license.js',
     'src/library.intro.js'],
   CORE_FILE_LIST = [
-    // Add your modules to this list after core.
     'src/library.core.js',
+    // Add your modules to this list after core.
     'src/library.module.js'],
   TAIL_FILE_LIST = [
     'src/library.init.js',
@@ -127,7 +127,7 @@ ast = pro.ast_squeeze(ast);
 _fs.writeFileSync(_distFileNameMin,
     getLicense() + ';' + pro.gen_code(ast) + ';');
 
-echoFileSize(_distFileNameMin, '   Yay!  Library was built.');
+echoFileSize(_distFileNameMin, '   Woohoo!  Library was built.');
 
 
 // --- VERSIONING --- //
