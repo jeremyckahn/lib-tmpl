@@ -1,3 +1,9 @@
+// Compile-time define for UglifyJS.
+if (typeof DEBUG === 'undefined') {
+  DEBUG = true;
+}
+
+
 // It is recmommended to use strict mode to help make mistakes easier to find.
 'use strict';
 
@@ -16,12 +22,6 @@ var Fn = Function, GLOBAL = Fn('return this')();
 // The methods here are exposed to all library modules.  Because all of the
 // source files are wrapped within a closure at build time, they are not
 // exposed globally in the distributable binaries.
-
-
-// Compile-time define for UglifyJS.
-if (typeof DEBUG === 'undefined') {
-  DEBUG = true;
-}
 
 
 /**

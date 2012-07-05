@@ -1,13 +1,19 @@
 /*jslint browser: true, nomen: true, plusplus: true, undef: true, vars: true, white: true */
 /**
  * Library Template
- * v0.0.1 (Thu, 05 Jul 2012 15:29:07 GMT)
+ * v0.0.1 (Thu, 05 Jul 2012 15:38:49 GMT)
  *
  * By Jeremy Kahn
  *
  * MIT Lincense.
  */
 ;(function (global) {
+// Compile-time define for UglifyJS.
+if (typeof DEBUG === 'undefined') {
+  DEBUG = true;
+}
+
+
 // It is recmommended to use strict mode to help make mistakes easier to find.
 'use strict';
 
@@ -26,12 +32,6 @@ var Fn = Function, GLOBAL = Fn('return this')();
 // The methods here are exposed to all library modules.  Because all of the
 // source files are wrapped within a closure at build time, they are not
 // exposed globally in the distributable binaries.
-
-
-// Compile-time define for UglifyJS.
-if (typeof DEBUG === 'undefined') {
-  DEBUG = true;
-}
 
 
 /**
