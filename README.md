@@ -27,7 +27,7 @@ Lecollinet](https://github.com/sork).
   * Testing template
   * AMD compatibility
 
-## A scalable, defensive pattern
+### A scalable, defensive pattern
 
 There are a lot of small things you can do maximize compatibility and minimize
 headaches.  This template takes care of a lot of this work for you.  Only one
@@ -35,11 +35,11 @@ global symbol is exposed (none are exposed if it is loaded as an AMD module),
 a clear convention for managing private and public APIs is provided, and
 JavaScript Strict Mode is enabled by default.
 
-## Clearly defined directory structure
+### Clearly defined directory structure
 
 Each directory has a README that explains what its purpose is.
 
-## Module templates
+### Module templates
 
 As your library grows, it helps to separate code into files.  This serves to
 keep large amounts of code manageable, and it also makes collaboration easier
@@ -48,14 +48,23 @@ number of additional modules.  Modules should be organized by the task they
 are trying to perform.  For instance, if you have a set of methods that do DOM
 manipulation, those should be isolated into a single module.
 
-## Basic build process
+### Basic build process
 
 Compiled code loads and runs faster than uncompiled code.  This template gives
 you `build.js`, a build script that you can easily extend and modify.  The
 build process uses [UglifyJS](https://github.com/mishoo/UglifyJS), which
 requires [Node](https://github.com/joyent/node) to be installed on your system.
 
-## Compiler directives for customizing binaries
+Building this project on the CLI is really easy:
+
+````
+$: node build.js --ver <BUILD_VERSION>
+````
+
+Where `BUILD_VERSION` is the version number for the binary.  It is strongly
+recommended that you use [SemVer](http://semver.org/) for your versioning.
+
+### Compiler directives for customizing binaries
 
 UglifyJS has a great feature: [Compiler
 directives](https://github.com/mishoo/UglifyJS#use-as-a-code-pre-processor).
@@ -65,14 +74,14 @@ which is exposing private functions and variables only during development and
 testing.  This template provides sections to place code that get removed at
 compile-time.
 
-## Testing template
+### Testing template
 
 A good library is thoroughly unit tested.  There are number of ways to unit
 test your code, and you are free to use whatever framework or approach you
 prefer.  For convenience, [Qunit](https://github.com/jquery/qunit) is included
 by default.  Also provided are basic test skeletons for API and AMD tests.
 
-## AMD compatibility
+### AMD compatibility
 
 [AMD (Asynchronous Module
 Definition)](https://github.com/amdjs/amdjs-api/wiki/AMD) defines a way by
