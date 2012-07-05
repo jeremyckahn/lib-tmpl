@@ -91,3 +91,12 @@ compatible with AMD loaders, such as
 [RequireJS](https://github.com/jrburke/requirejs) (which is included by
 default).  You can also safely load the code with a standard `<script>` element
 with no side effects.
+
+## Building on top of this template
+
+If you choose to use this template to build your libraries on top of, you
+should first change the name of the library.  It is called "Library" by
+default.  You'll need to change the name of the constructor (in
+`src/library.core.js`) and all references to that constructor in the code and
+comments.  It's also a good idea to change the file names to reference the
+actual name of your library, rather than the generic "library."
