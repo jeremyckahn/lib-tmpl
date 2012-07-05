@@ -21,13 +21,13 @@ AMD compatibility code is inspired by the work of Franck Lecollinet.
   * Clearly defined directory structure
   * Module templates
   * Basic build process
-  * Testing template (with [Qunit](https://github.com/jquery/qunit))
-  * AMD compatibility
   * Compiler directives for customizing binaries
+  * Testing template
+  * AMD compatibility
 
 ## A scalable, defensive pattern
 
-There are a lot of small things you can do maximze compatiblity and minimize
+There are a lot of small things you can do maximize compatibility and minimize
 headaches.  This template takes care of a lot of this work for you.  Only one
 global symbol is exposed (none are exposed if it is loaded as an AMD module),
 a clear convention for managing private and public APIs is provided, and
@@ -42,14 +42,40 @@ Each directory has a README that explains what its purpose is.
 As your library grows, it helps to separate code into files.  This serves to
 keep large amounts of code manageable, and it also makes collaboration easier
 by mitigating merge conflicts.  A project must have one core module, and any
-number of additional modules.  Modules should be organized by the problem they
-are trying to solve.  For instance, if you have a set of methods that do DOM
+number of additional modules.  Modules should be organized by the task they
+are trying to perform.  For instance, if you have a set of methods that do DOM
 manipulation, those should be isolated into a single module.
 
 ## Basic build process
 
+Compiled code loads and runs faster than uncompiled code.  This template gives
+you `build.js`, a build script that you can easily extend and modify.  The
+build process uses [UglifyJS](https://github.com/mishoo/UglifyJS), which
+requires [Node](https://github.com/joyent/node) to be installed on your system.
+
+## Compiler directives for customizing binaries
+
+UglifyJS has a great feature:
+[Compiler directives](https://github.com/mishoo/UglifyJS#use-as-a-code-pre-processor).
+Compiler directives allow you to mark sections of code that should not be
+included in the compiled binary.  This has a number of benefits, not least of
+which is exposing private functions and variables only during development and
+testing.  This template provides sections to place code that get removed at
+compile-time.
+
 ## Testing template
+
+A good library is thoroughly unit tested.  There are number of ways to unit
+test your code, and you are free to use whatever framework or approach you
+prefer.  For convenience, [Qunit](https://github.com/jquery/qunit) is included
+by default.  Also provided are basic test skeletons for API and AMD tests.
 
 ## AMD compatibility
 
-## Compiler directives for customizing binaries
+[AMD (Asynchronous Module Definition)](https://github.com/amdjs/amdjs-api/wiki/AMD)
+defines a way by which to load code.  You don't have to use it, but it's a
+great development tool and helps prevent pollution of the global scope.  This
+template is compatible with AMD loaders, such as
+[RequireJS](https://github.com/jrburke/requirejs) (which is included by
+default).  You can also safely load the code with a standard `<script>`
+element with no side effects.
