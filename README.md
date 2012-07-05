@@ -11,9 +11,11 @@ libraries.
 
 I created this skeleton project out of what I learned with my projects
 [Rekapi](https://github.com/jeremyckahn/rekapi) and
-[Shifty](https://github.com/jeremyckahn/shifty).  The build script is an
-modification of a script written by Miller Medeiros.  The module pattern and
-AMD compatibility code is inspired by the work of Franck Lecollinet.
+[Shifty](https://github.com/jeremyckahn/shifty).  The build script is a
+modification of a script written by [Miller
+Medeiros](https://github.com/millermedeiros).  The module pattern and AMD
+compatibility code is inspired by the work of [Franck
+Lecollinet](https://github.com/sork).
 
 ## What this project gives you
 
@@ -55,8 +57,8 @@ requires [Node](https://github.com/joyent/node) to be installed on your system.
 
 ## Compiler directives for customizing binaries
 
-UglifyJS has a great feature:
-[Compiler directives](https://github.com/mishoo/UglifyJS#use-as-a-code-pre-processor).
+UglifyJS has a great feature: [Compiler
+directives](https://github.com/mishoo/UglifyJS#use-as-a-code-pre-processor).
 Compiler directives allow you to mark sections of code that should not be
 included in the compiled binary.  This has a number of benefits, not least of
 which is exposing private functions and variables only during development and
@@ -72,10 +74,11 @@ by default.  Also provided are basic test skeletons for API and AMD tests.
 
 ## AMD compatibility
 
-[AMD (Asynchronous Module Definition)](https://github.com/amdjs/amdjs-api/wiki/AMD)
-defines a way by which to load code.  You don't have to use it, but it's a
-great development tool and helps prevent pollution of the global scope.  This
-template is compatible with AMD loaders, such as
+[AMD (Asynchronous Module
+Definition)](https://github.com/amdjs/amdjs-api/wiki/AMD) defines a way by
+which to load code.  You don't have to use it, but it's a great development
+tool and helps prevent pollution of the global scope.  This template is
+compatible with AMD loaders, such as
 [RequireJS](https://github.com/jrburke/requirejs) (which is included by
-default).  You can also safely load the code with a standard `<script>`
-element with no side effects.
+default).  You can also safely load the code with a standard `<script>` element
+with no side effects.
