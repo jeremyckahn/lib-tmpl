@@ -1,0 +1,21 @@
+{
+  "name": "lib-tmpl",
+  "version": "0.0.1",
+  "description": "JavaScript Library Template",
+  "directories": {
+    "test": "test",
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jeremyckahn/lib-tmpl.git"
+  },
+  "devDependencies": {
+    "uglify-js": "*",
+    "commander": "*"
+  },
+  "author": "Jeremy Kahn"
+}
