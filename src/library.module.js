@@ -4,7 +4,7 @@
 // module.  Non-core modules can assume the core module's API and
 // implementation, but that is the only exception.
 
-// Note:  You should name this module something unique.  If you end up
+// Note:  You must name this module something unique.  If you end up
 // copy/pasting this file, the last function defined will clobber the previous
 // one.
 function initLibraryModule (context) {
@@ -12,24 +12,20 @@ function initLibraryModule (context) {
   var Library = context.Library;
 
 
-  // A library module can do two things.  First, it extends the prototype of
-  // the main Library function to add more methods.  Second, it can add static
-  // properties to the Library Object.  This is useful if your library needs
-  // multiple "Class" types.
+  // A library module can do two things:  It can extend the prototype of the
+  // Library Object to add more methods.  It can also add static properties to
+  // the Library Object.  This is useful if your library needs helper Objects.
 
 
   // PRIVATE MODULE CONSTANTS
   //
 
 
-  // An example of a CONSTANT variable.
   var MODULE_CONSTANT = true;
 
 
   // PRIVATE MODULE METHODS
   //
-  // These do not get attached to the prototype of the method.  They are
-  // private utility functions.
 
 
   /**
@@ -46,7 +42,8 @@ function initLibraryModule (context) {
 
   /**
    * An example of a static Library property.  This particular static property
-   * is also a base Object.  What static properties you use are up to you.
+   * is also an instantiable Object.  What static properties you use are up to
+   * you.
    * @constructor
    */
   Library.LibraryHelper = function () {
@@ -56,7 +53,7 @@ function initLibraryModule (context) {
 
   // LIBRARY PROTOTYPE EXTENSIONS
   //
-  // A module works by extending the prototype of the Library Object.
+  // A module can extend the prototype of the Library Object.
 
 
   /**
@@ -70,10 +67,10 @@ function initLibraryModule (context) {
   };
 
 
-  // DEBUGGING CODE
+  // DEBUG CODE
   //
   // Each module can have its own debugging section.  They all get compiled out
-  // of the binary anyways.
+  // of the binary.
 
 
   if (DEBUG) {

@@ -1,7 +1,7 @@
 /*jslint browser: true, nomen: true, plusplus: true, undef: true, vars: true, white: true */
 /**
  * Library Template
- * v0.0.1 (Thu, 05 Jul 2012 20:02:49 GMT)
+ * v0.0.1 (Fri, 06 Jul 2012 16:26:23 GMT)
  *
  * By Jeremy Kahn
  *
@@ -14,7 +14,7 @@ if (typeof DEBUG === 'undefined') {
 }
 
 
-// It is recmommended to use strict mode to help make mistakes easier to find.
+// It is recommended to use strict mode to help make mistakes easier to find.
 'use strict';
 
 
@@ -59,8 +59,8 @@ function initLibraryCore (context) {
 
   // PRIVATE MODULE METHODS
   //
-  // These do not get attached to the prototype of the method.  They are
-  // private utility functions.
+  // These do not get attached to a prototype.  They are private utility
+  // functions.
 
 
   /**
@@ -74,7 +74,7 @@ function initLibraryCore (context) {
 
 
   /**
-   * This is the constructor for the Library function.  Please rename it to
+   * This is the constructor for the Library Object.  Please rename it to
    * whatever your library's name is.  Note that the constructor is also being
    * attached to the context that the library was loaded in.
    * @param {Object} opt_config Contains any properties that should be used to
@@ -89,14 +89,14 @@ function initLibraryCore (context) {
     //
     // Your library likely has some instance-specific properties.  The value of
     // these properties can depend on any number of things, such as properties
-    // passed in via opt_config or global state.  Whatever the case, the value
+    // passed in via opt_config or global state.  Whatever the case, the values
     // should be set in this constructor.
 
-    // Instance variables that have an underscore prepended mean that should
-    // not be modified outside of the library.  They can be freely modified by
-    // library methods, however.  If an instance variable will likely be
-    // accessed outside of the library, consider making a public getter
-    // function for it.
+    // Instance variables that have an underscore prepended mean that they
+    // should not be modified outside of the library.  They can be freely
+    // modified by library methods, however.  If an instance variable will
+    // likely be accessed outside of the library, consider making a public
+    // getter function for it.
     this._readOnlyVar = 'read only';
 
     // Instance variables that do not have an underscore prepended are
@@ -139,7 +139,7 @@ function initLibraryCore (context) {
   };
 
 
-  // DEBUGGING CODE
+  // DEBUG CODE
   //
   // With compiler directives, you can wrap code in a conditional check to
   // ensure that it does not get included in the compiled binaries.  This is
@@ -158,7 +158,7 @@ function initLibraryCore (context) {
 // module.  Non-core modules can assume the core module's API and
 // implementation, but that is the only exception.
 
-// Note:  You should name this module something unique.  If you end up
+// Note:  You must name this module something unique.  If you end up
 // copy/pasting this file, the last function defined will clobber the previous
 // one.
 function initLibraryModule (context) {
@@ -166,24 +166,20 @@ function initLibraryModule (context) {
   var Library = context.Library;
 
 
-  // A library module can do two things.  First, it extends the prototype of
-  // the main Library function to add more methods.  Second, it can add static
-  // properties to the Library Object.  This is useful if your library needs
-  // multiple "Class" types.
+  // A library module can do two things:  It can extend the prototype of the
+  // Library Object to add more methods.  It can also add static properties to
+  // the Library Object.  This is useful if your library needs helper Objects.
 
 
   // PRIVATE MODULE CONSTANTS
   //
 
 
-  // An example of a CONSTANT variable.
   var MODULE_CONSTANT = true;
 
 
   // PRIVATE MODULE METHODS
   //
-  // These do not get attached to the prototype of the method.  They are
-  // private utility functions.
 
 
   /**
@@ -200,7 +196,8 @@ function initLibraryModule (context) {
 
   /**
    * An example of a static Library property.  This particular static property
-   * is also a base Object.  What static properties you use are up to you.
+   * is also an instantiable Object.  What static properties you use are up to
+   * you.
    * @constructor
    */
   Library.LibraryHelper = function () {
@@ -210,7 +207,7 @@ function initLibraryModule (context) {
 
   // LIBRARY PROTOTYPE EXTENSIONS
   //
-  // A module works by extending the prototype of the Library Object.
+  // A module can extend the prototype of the Library Object.
 
 
   /**
@@ -224,10 +221,10 @@ function initLibraryModule (context) {
   };
 
 
-  // DEBUGGING CODE
+  // DEBUG CODE
   //
   // Each module can have its own debugging section.  They all get compiled out
-  // of the binary anyways.
+  // of the binary.
 
 
   if (DEBUG) {
