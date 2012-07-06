@@ -16,6 +16,18 @@ Medeiros](https://github.com/millermedeiros).  The module pattern and AMD
 compatibility code is inspired by the work of [Franck
 Lecollinet](https://github.com/sork).
 
+## Setting it up
+
+This project uses [NodeJS](http://nodejs.org/) for the build process, and you
+need to install [UglifyJS](https://github.com/mishoo/UglifyJS) and
+[Commander](https://github.com/visionmedia/commander.js).  Just do this at the
+CLI:
+
+````
+$ cd lib-tmpl
+$ npm install
+````
+
 ## What this project gives you
 
   * A scalable, defensive pattern
@@ -52,7 +64,7 @@ those should be isolated into a single module.
 Compiled code loads and runs faster than uncompiled code.  This template gives
 you `build.js`, a build script that you can easily extend and modify.  The
 build process uses [UglifyJS](https://github.com/mishoo/UglifyJS), which
-requires [Node](https://github.com/joyent/node) to be installed on your system.
+requires Node to be installed on your system.
 
 Building this project on the CLI is really easy:
 
