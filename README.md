@@ -3,7 +3,8 @@
 This is meant to serve as a foundation to build JavaScript libraries on top of.
 Exactly how a JavaScript library is structured isn't standardized, so this
 project aims to define an opinionated pattern for organizing, building, and
-testing code.
+testing code.  __If you are writing a JavaScript library and need a starting
+point, this is a good option.__
 
 Don't be afraid to change any code or conventions in this project, it's simply
 an educational tool meant to give direction when writing JavaScript libraries.
