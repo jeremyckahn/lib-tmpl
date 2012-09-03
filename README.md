@@ -31,7 +31,7 @@ $ npm install
 
 ## What this project gives you
 
-  * A scalable, defensive pattern
+  * A scalable, unobtrusive pattern
   * Clearly defined directory structure
   * Module templates
   * Basic build process
@@ -39,7 +39,7 @@ $ npm install
   * Testing template
   * AMD compatibility
 
-### A scalable, defensive pattern
+### A scalable, unobtrusive pattern
 
 There are a lot of small things you can do maximize compatibility and minimize
 headaches.  This template takes care of a lot of this work for you.  Only one
