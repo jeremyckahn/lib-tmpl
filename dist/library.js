@@ -1,7 +1,7 @@
 /*jslint browser: true, nomen: true, plusplus: true, undef: true, vars: true, white: true */
 /**
  * Library Template
- * v0.0.1 (Fri, 06 Jul 2012 16:26:23 GMT)
+ * v0.0.1 (Mon, 03 Sep 2012 18:21:18 GMT)
  *
  * By Jeremy Kahn
  *
@@ -252,13 +252,11 @@ var initLibrary = function (global, loadedViaAMD) {
 
 
 if (typeof define === 'function' && define.amd) {
-  var underscoreAlreadyInUse = (typeof _ !== 'undefined');
-
   // Expose Library as an AMD module if it's loaded with RequireJS or similar.
   //
   // The initLibrary module is anonymous so that it can be required with any
   // name.  Example: define(['lib/library.min'], function(Library) { ... });
-  define(function (Tweenable, Underscore) {
+  define(function () {
     return initLibrary(global, true);
   });
 } else {
