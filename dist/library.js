@@ -1,14 +1,15 @@
 /*jslint browser: true, nomen: true, plusplus: true, undef: true, vars: true, white: true */
 /**
  * Library Template
- * v0.0.1 (Mon, 03 Sep 2012 18:21:18 GMT)
+ * v0.0.1 (Sat, 13 Oct 2012 23:12:16 GMT)
  *
  * By Jeremy Kahn
  *
  * MIT Lincense.
  */
 ;(function (global) {
-// Compiler directive for UglifyJS.
+// Compiler directive for UglifyJS.  This must go above the 'use strict'
+// statement below.  Feel free to add more of these.
 if (typeof DEBUG === 'undefined') {
   DEBUG = true;
 }
@@ -92,11 +93,10 @@ function initLibraryCore (context) {
     // passed in via opt_config or global state.  Whatever the case, the values
     // should be set in this constructor.
 
-    // Instance variables that have an underscore prepended mean that they
-    // should not be modified outside of the library.  They can be freely
-    // modified by library methods, however.  If an instance variable will
-    // likely be accessed outside of the library, consider making a public
-    // getter function for it.
+    // Instance variables that have a leading underscore mean that they should
+    // not be modified outside of the library.  They can be freely modified
+    // internally, however.  If an instance variable will likely be accessed
+    // outside of the library, consider making a public getter function for it.
     this._readOnlyVar = 'read only';
 
     // Instance variables that do not have an underscore prepended are
@@ -124,8 +124,8 @@ function initLibraryCore (context) {
 
   /**
    * This is an example of a chainable method.  That means that the return
-   * value of this function is the library instance itself.  Chaining lets you
-   * do chained method calls like this:
+   * value of this function is the library instance itself (`this`).  This lets
+   * you do chained method calls like this:
    *
    * var myLibrary = new Library();
    * myLibrary
@@ -154,9 +154,8 @@ function initLibraryCore (context) {
 }
 // Your library may have many modules.  How you organize the modules is up to
 // you, but generally speaking it's best if each module addresses a specific
-// concern.  No module should know about the API or implementation of any other
-// module.  Non-core modules can assume the core module's API and
-// implementation, but that is the only exception.
+// concern.  No module should need to know about the implementation details of
+// any other module.
 
 // Note:  You must name this module something unique.  If you end up
 // copy/pasting this file, the last function defined will clobber the previous
@@ -166,9 +165,9 @@ function initLibraryModule (context) {
   var Library = context.Library;
 
 
-  // A library module can do two things:  It can extend the prototype of the
-  // Library Object to add more methods.  It can also add static properties to
-  // the Library Object.  This is useful if your library needs helper Objects.
+  // A library module can do two things to the Library Object:  It can extend
+  // the prototype to add more methods, and it can add static properties.  This
+  // is useful if your library needs helper methods.
 
 
   // PRIVATE MODULE CONSTANTS
@@ -196,8 +195,7 @@ function initLibraryModule (context) {
 
   /**
    * An example of a static Library property.  This particular static property
-   * is also an instantiable Object.  What static properties you use are up to
-   * you.
+   * is also an instantiable Object.
    * @constructor
    */
   Library.LibraryHelper = function () {
@@ -241,7 +239,7 @@ var initLibrary = function (global, loadedViaAMD) {
   initLibraryCore(context);
   initLibraryModule(context);
   // Add a similar line as above for each module that you have.  If you have a
-  // module named "Awesome module," it should live in the file
+  // module named "Awesome Module," it should live in the file
   // "src/library.awesome-module.js" with a wrapper function named
   // "initAwesomeModule".  That function should then be invoked here with:
   //
