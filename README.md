@@ -3,7 +3,7 @@
 This is meant to serve as a foundation to build JavaScript libraries on top of.
 Exactly how a JavaScript library is structured isn't standardized, so this
 project aims to define an opinionated pattern for organizing, building, and
-testing code.  __If you are writing a JavaScript library and need a starting
+testing code.  __If want to write a JavaScript library and need a starting
 point, this is a good option.__
 
 Don't be afraid to change any code or conventions in this project, it's simply
@@ -11,11 +11,11 @@ an educational tool meant to give direction when writing JavaScript libraries.
 
 I created this skeleton project out of what I learned with my projects
 [Rekapi](https://github.com/jeremyckahn/rekapi) and
-[Shifty](https://github.com/jeremyckahn/shifty).  The build script is a
-modification of a script written by [Miller
-Medeiros](https://github.com/millermedeiros).  The module pattern and AMD
-compatibility code is inspired by the work of [Franck
-Lecollinet](https://github.com/sork).
+[Shifty](https://github.com/jeremyckahn/shifty).  It is also heavily inspired
+by other projects such as jQuery.  The build script is a modification of a
+script written by [Miller Medeiros](https://github.com/millermedeiros).  The
+module pattern and AMD compatibility code is an abstraction of the work of
+[Franck Lecollinet](https://github.com/sork).
 
 ## Setting it up
 
@@ -36,7 +36,7 @@ $ npm install
   * Module templates
   * Basic build process
   * Compiler directives for customizing binaries
-  * Testing template
+  * Testing bootstrap
   * AMD compatibility
 
 ### A scalable, unobtrusive pattern
@@ -55,10 +55,10 @@ Each directory has a README that explains what its purpose is.
 
 As your library grows, it helps to separate code into files.  This serves to
 keep large amounts of code manageable, and it also makes collaboration easier
-by mitigating merge conflicts.  A project must have one core module, and any
-number of additional modules.  Modules should be organized by the task they
-perform.  For instance, if you have a set of methods that do DOM manipulation,
-those should be isolated into a single module.
+by mitigating merge conflicts.  A lib-tmpl library  must have one core module,
+and any number of additional modules.  Modules should be organized by the task
+they perform.  For instance, if you have a set of methods that do DOM
+manipulation, those should be isolated into a single module.
 
 ### Basic build process
 
@@ -73,7 +73,7 @@ Building this project on the CLI is really easy:
 $: node build.js --ver <BUILD_VERSION>
 ````
 
-Where `BUILD_VERSION` is the version number for the binary.  It is strongly
+Where `<>BUILD_VERSION>` is the version number for the binary.  It is strongly
 recommended that you use [SemVer](http://semver.org/) for your versioning.
 
 ### Compiler directives for customizing binaries
@@ -86,7 +86,7 @@ which is exposing private functions and variables only during development and
 testing.  This template provides sections to place code that get removed at
 compile-time.
 
-### Testing template
+### Testing bootstrap
 
 A good library is thoroughly unit tested.  There are number of ways to unit
 test your code, and you are free to use whatever framework or approach you
@@ -116,7 +116,7 @@ actual name of your library, rather than the generic "library."
 Don't forget to update `src/library.license.js` to reflect you and your
 project!
 
-## Adding modules
+## Adding module files
 
 You can add modules to this library.  You can think of `src/library.module.js`
 as a generic module template.  Simply copy that file and modify as needed.  To
