@@ -1,8 +1,7 @@
 // Your library may have many modules.  How you organize the modules is up to
 // you, but generally speaking it's best if each module addresses a specific
-// concern.  No module should know about the API or implementation of any other
-// module.  Non-core modules can assume the core module's API and
-// implementation, but that is the only exception.
+// concern.  No module should need to know about the implementation details of
+// any other module.
 
 // Note:  You must name this module something unique.  If you end up
 // copy/pasting this file, the last function defined will clobber the previous
@@ -12,9 +11,9 @@ function initLibraryModule (context) {
   var Library = context.Library;
 
 
-  // A library module can do two things:  It can extend the prototype of the
-  // Library Object to add more methods.  It can also add static properties to
-  // the Library Object.  This is useful if your library needs helper Objects.
+  // A library module can do two things to the Library Object:  It can extend
+  // the prototype to add more methods, and it can add static properties.  This
+  // is useful if your library needs helper methods.
 
 
   // PRIVATE MODULE CONSTANTS
@@ -42,8 +41,7 @@ function initLibraryModule (context) {
 
   /**
    * An example of a static Library property.  This particular static property
-   * is also an instantiable Object.  What static properties you use are up to
-   * you.
+   * is also an instantiable Object.
    * @constructor
    */
   Library.LibraryHelper = function () {

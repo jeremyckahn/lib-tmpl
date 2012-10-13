@@ -1,4 +1,5 @@
-// Compiler directive for UglifyJS.
+// Compiler directive for UglifyJS.  This must go above the 'use strict'
+// statement below.  Feel free to add more of these.
 if (typeof DEBUG === 'undefined') {
   DEBUG = true;
 }
@@ -82,11 +83,10 @@ function initLibraryCore (context) {
     // passed in via opt_config or global state.  Whatever the case, the values
     // should be set in this constructor.
 
-    // Instance variables that have an underscore prepended mean that they
-    // should not be modified outside of the library.  They can be freely
-    // modified by library methods, however.  If an instance variable will
-    // likely be accessed outside of the library, consider making a public
-    // getter function for it.
+    // Instance variables that have a leading underscore mean that they should
+    // not be modified outside of the library.  They can be freely modified
+    // internally, however.  If an instance variable will likely be accessed
+    // outside of the library, consider making a public getter function for it.
     this._readOnlyVar = 'read only';
 
     // Instance variables that do not have an underscore prepended are
@@ -114,8 +114,8 @@ function initLibraryCore (context) {
 
   /**
    * This is an example of a chainable method.  That means that the return
-   * value of this function is the library instance itself.  Chaining lets you
-   * do chained method calls like this:
+   * value of this function is the library instance itself (`this`).  This lets
+   * you do chained method calls like this:
    *
    * var myLibrary = new Library();
    * myLibrary

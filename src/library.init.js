@@ -7,7 +7,7 @@ var initLibrary = function (global, loadedViaAMD) {
   initLibraryCore(context);
   initLibraryModule(context);
   // Add a similar line as above for each module that you have.  If you have a
-  // module named "Awesome module," it should live in the file
+  // module named "Awesome Module," it should live in the file
   // "src/library.awesome-module.js" with a wrapper function named
   // "initAwesomeModule".  That function should then be invoked here with:
   //
