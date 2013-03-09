@@ -1,5 +1,7 @@
 # JavaScript Library Template
 
+v. 0.1.0 _(of the template, not your library)_
+
 This is meant to serve as a foundation to build JavaScript libraries on top of.
 Exactly how a JavaScript library is structured isn't standardized, so this
 project aims to define an opinionated pattern for organizing, building, and
