@@ -14,7 +14,7 @@
     "url": "https://github.com/jeremyckahn/lib-tmpl.git"
   },
   "devDependencies": {
-    "uglify-js": "*",
+    "uglify-js": "1.x",
     "commander": "*"
   },
   "author": "Jeremy Kahn"
