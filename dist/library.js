@@ -1,22 +1,10 @@
-/*jslint browser: true, nomen: true, plusplus: true, undef: true, vars: true, white: true */
-/**
- * Library Template
- * v0.0.1 (Sat, 13 Oct 2012 23:12:16 GMT)
- *
- * By Jeremy Kahn
- *
- * MIT Lincense.
- */
+/*! lib-tmpl - v0.2.0 - 2013-03-10 - Jeremy Kahn */
 ;(function (global) {
-// Compiler directive for UglifyJS.  This must go above the 'use strict'
-// statement below.  Feel free to add more of these.
+
+// Compiler directive for UglifyJS.  See library.const.js for more info.
 if (typeof DEBUG === 'undefined') {
   DEBUG = true;
 }
-
-
-// It is recommended to use strict mode to help make mistakes easier to find.
-'use strict';
 
 
 // LIBRARY-GLOBAL CONSTANTS
@@ -25,7 +13,7 @@ if (typeof DEBUG === 'undefined') {
 
 
 // GLOBAL is a reference to the global Object.
-var Fn = Function, GLOBAL = Fn('return this')();
+var Fn = Function, GLOBAL = new Fn('return this')();
 
 
 // LIBRARY-GLOBAL METHODS
@@ -48,6 +36,10 @@ function noop () { }
  * require.js, this is the global Object.
  */
 function initLibraryCore (context) {
+
+
+  // It is recommended to use strict mode to help make mistakes easier to find.
+  'use strict';
 
 
   // PRIVATE MODULE CONSTANTS
@@ -105,7 +97,7 @@ function initLibraryCore (context) {
     this.readAndWrite = 'read and write';
 
     return this;
-  }
+  };
 
 
   // LIBRARY PROTOTYPE METHODS
@@ -152,15 +144,18 @@ function initLibraryCore (context) {
   }
 
 }
+
 // Your library may have many modules.  How you organize the modules is up to
 // you, but generally speaking it's best if each module addresses a specific
 // concern.  No module should need to know about the implementation details of
 // any other module.
 
-// Note:  You must name this module something unique.  If you end up
+// Note:  You must name this function something unique.  If you end up
 // copy/pasting this file, the last function defined will clobber the previous
 // one.
 function initLibraryModule (context) {
+
+  'use strict';
 
   var Library = context.Library;
 
@@ -209,7 +204,7 @@ function initLibraryModule (context) {
 
 
   /**
-   * An example of a protoype method.
+   * An example of a prototype method.
    * @return {string}
    */
   Library.prototype.alternateGetReadOnlyVar = function () {
@@ -219,22 +214,17 @@ function initLibraryModule (context) {
   };
 
 
-  // DEBUG CODE
-  //
-  // Each module can have its own debugging section.  They all get compiled out
-  // of the binary.
-
-
   if (DEBUG) {
-
+    // DEBUG CODE
+    //
+    // Each module can have its own debugging section.  They all get compiled
+    // out of the binary.
   }
 
 }
-var initLibrary = function (global, loadedViaAMD) {
 
-  // Prevent Library from being attached to the global Object if it was loaded
-  // via an AMD loader.
-  var context = loadedViaAMD ? {} : global;
+/*global initLibraryCore initLibraryModule */
+var initLibrary = function (context) {
 
   initLibraryCore(context);
   initLibraryModule(context);
@@ -250,19 +240,15 @@ var initLibrary = function (global, loadedViaAMD) {
 
 
 if (typeof define === 'function' && define.amd) {
-  // Expose Library as an AMD module if it's loaded with RequireJS or similar.
-  //
-  // The initLibrary module is anonymous so that it can be required with any
-  // name.  Example: define(['lib/library.min'], function(Library) { ... });
+  // Expose Library as an AMD module if it's loaded with RequireJS or
+  // similar.
   define(function () {
-    return initLibrary(global, true);
+    return initLibrary({});
   });
 } else {
   // Load Library normally (creating a Library global) if not using an AMD
   // loader.
-
-  // Note: `global` is not defined when running unit tests. Pass `this`
-  // instead.
-  initLibrary(typeof global !== 'undefined' ? global : this);
+  initLibrary(this);
 }
+
 } (this));

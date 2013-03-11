@@ -3,10 +3,12 @@
 // concern.  No module should need to know about the implementation details of
 // any other module.
 
-// Note:  You must name this module something unique.  If you end up
+// Note:  You must name this function something unique.  If you end up
 // copy/pasting this file, the last function defined will clobber the previous
 // one.
 function initLibraryModule (context) {
+
+  'use strict';
 
   var Library = context.Library;
 
@@ -55,7 +57,7 @@ function initLibraryModule (context) {
 
 
   /**
-   * An example of a protoype method.
+   * An example of a prototype method.
    * @return {string}
    */
   Library.prototype.alternateGetReadOnlyVar = function () {
@@ -65,14 +67,11 @@ function initLibraryModule (context) {
   };
 
 
-  // DEBUG CODE
-  //
-  // Each module can have its own debugging section.  They all get compiled out
-  // of the binary.
-
-
   if (DEBUG) {
-
+    // DEBUG CODE
+    //
+    // Each module can have its own debugging section.  They all get compiled
+    // out of the binary.
   }
 
 }

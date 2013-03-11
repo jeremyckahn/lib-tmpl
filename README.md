@@ -1,12 +1,13 @@
 # JavaScript Library Template
 
-v. 0.1.0 _(of the template, not your library)_
-
 This is meant to serve as a foundation to build JavaScript libraries on top of.
 Exactly how a JavaScript library is structured isn't standardized, so this
 project aims to define an opinionated pattern for organizing, building, and
 testing code.  __If want to write a JavaScript library and need a starting
 point, this is a good option.__
+
+[Here's a video](http://www.youtube.com/watch?v=OGZB7lq9-Mk) explaining the
+ideas and motivation behind lib-tmpl.
 
 Don't be afraid to change any code or conventions in this project, it's simply
 an educational tool meant to give direction when writing JavaScript libraries.
@@ -14,44 +15,40 @@ an educational tool meant to give direction when writing JavaScript libraries.
 I created this skeleton project out of what I learned with my projects
 [Rekapi](https://github.com/jeremyckahn/rekapi) and
 [Shifty](https://github.com/jeremyckahn/shifty).  It is also heavily inspired
-by other projects such as jQuery.  The build script is a modification of a
-script written by [Miller Medeiros](https://github.com/millermedeiros).  The
-module pattern and AMD compatibility code is an abstraction of the work of
-[Franck Lecollinet](https://github.com/sork).
+by other projects such as jQuery.  The module pattern and AMD compatibility
+code is an abstraction of the work of [Franck
+Lecollinet](https://github.com/sork).
 
 ## Setting it up
 
-This project uses [NodeJS](http://nodejs.org/) for the build process, and you
-need to install [UglifyJS](https://github.com/mishoo/UglifyJS) and
-[Commander](https://github.com/visionmedia/commander.js).  Just do this at the
-CLI:
+This project uses [NodeJS](http://nodejs.org/) and [Grunt](http://gruntjs.com/)
+for the build process.  Assuming you have Node and npm set up (npm is installed
+when Node in installed), you can just do this at the CLI in the lib-tmpl
+directory:
 
 ````
-$ cd lib-tmpl
-$ npm install
+$: npm install
 ````
 
 ## What this project gives you
 
-  * A scalable, unobtrusive pattern
-  * Clearly defined directory structure
-  * Module templates
-  * Basic build process
-  * Compiler directives for customizing binaries
-  * Testing bootstrap
-  * AMD compatibility
+  * [A scalable, unobtrusive module pattern](#a-scalable-unobtrusive-pattern)
+  * [Module templates](#module-templates)
+  * [A directory structure](#a-directory-structure)
+  * [A build process (via Grunt)](#a-build-process-via-grunt)
+  * [Conditional compilation for customizing
+    binaries](https://github.com/jeremyckahn/lib-tmpl/tree/grunt#conditional-compilation-for-customizing-binaries)
+  * [Testing bootstrap](#testing-bootstrap)
+  * [JSHint boilerplate](#jshint-boilerplate)
+  * [AMD compatibility](#amd-compatibility)
 
 ### A scalable, unobtrusive pattern
 
 There are a lot of small things you can do maximize compatibility and minimize
-headaches.  This template takes care of a lot of this work for you.  Only one
-global symbol is exposed (none are exposed if it is loaded as an AMD module),
-a clear convention for managing private and public APIs is provided, and
-JavaScript Strict Mode is enabled by default.
-
-### Clearly defined directory structure
-
-Each directory has a README that explains what its purpose is.
+headaches.  This template has a lot of this baked in.  Only one global symbol
+is exposed (none are exposed if it is loaded as an AMD module), a clear
+convention for managing private and public APIs is provided, and JavaScript
+Strict Mode is enabled by default.
 
 ### Module templates
 
@@ -62,38 +59,58 @@ and any number of additional modules.  Modules should be organized by the task
 they perform.  For instance, if you have a set of methods that do DOM
 manipulation, those should be isolated into a single module.
 
-### Basic build process
+### A directory structure
 
-Compiled code loads and runs faster than uncompiled code.  This template gives
-you `build.js`, a build script that you can easily extend and modify.  The
-build process uses [UglifyJS](https://github.com/mishoo/UglifyJS), which
-requires Node to be installed on your system.
+Each directory has a README that explains what its purpose is.
 
-Building this project on the CLI is really easy:
+### A build process (via Grunt)
+
+Compiled code loads and runs faster than uncompiled code.  lib-tmpl provides
+concatenation and minification via Grunt (see `Gruntfile.js`).  Feel free to
+modify this configuration to suit your needs.  The default configuration
+creates the production-ready `dist/library.min.js` and debug-friendly
+`dist/library.js` files.  Building this project via the CLI is really easy:
 
 ````
-$: node build.js --ver <BUILD_VERSION>
+$: grunt build
 ````
 
-Where `<>BUILD_VERSION>` is the version number for the binary.  It is strongly
-recommended that you use [SemVer](http://semver.org/) for your versioning.
+### Conditional compilation for customizing binaries
 
-### Compiler directives for customizing binaries
-
-UglifyJS has a great feature: [Compiler
-directives](https://github.com/mishoo/UglifyJS#use-as-a-code-pre-processor).
-Compiler directives allow you to mark sections of code that should not be
+UglifyJS has a great feature: [Conditional
+compilation](https://github.com/mishoo/UglifyJS2#conditional-compilation).
+Conditional compilation allows you to mark sections of code that should not be
 included in the compiled binary.  This has a number of benefits, not least of
 which is exposing private functions and variables only during development and
-testing.  This template provides sections to place code that get removed at
-compile-time.
+testing.  This template provides sections to place code that get removed during
+compilation.  The flag `DEBUG` is included and set up out of the box.  See the
+notes in `src/library.const.js` for more info on how to add more.
 
 ### Testing bootstrap
 
 A good library is thoroughly unit tested.  There are number of ways to unit
 test your code, and you are free to use whatever framework or approach you
-prefer.  For convenience, [Qunit](https://github.com/jquery/qunit) is included
-by default.  Also provided are basic test skeletons for API and AMD tests.
+prefer.  lib-tmpl provides basic test skeletons for API and AMD tests via
+[QUnit](http://qunitjs.com/).
+
+To run the tests, you can either open each of the `test/qunit.*.html` pages in
+your browser, or run them all in the CLI (requires
+[PhantomJS](http://phantomjs.org/) to be installed). The `qunit` Grunt task
+automates this for you:
+
+````
+$: grunt qunit
+````
+
+### JSHint boilerplate
+
+[JSHint](http://jshint.com/) is a tool that helps ensure code quality.
+lib-tmpl provides some default settings in `.jshintrc` - feel free to customize
+it.  To lint all of the source files, run this:
+
+````
+$: grunt jshint
+````
 
 ### AMD compatibility
 
@@ -113,16 +130,35 @@ should first change the name of the library.  It is called "Library" by
 default.  You'll need to change the name of the constructor (in
 `src/library.core.js`) and all references to that constructor in the code and
 comments.  It's also a good idea to change the file names to reference the
-actual name of your library, rather than the generic "library."
+actual name of your library, rather than the generic "library." In other words,
+you should change `src/library.core.js` to something like
+`src/my-awesome-tool.core.js`.
 
-Don't forget to update `src/library.license.js` to reflect you and your
-project!
+The naming convention for the files in `src/` is significant:
 
-## Adding module files
+````
+<LIBRARY_NAME>.<MODULE_NAME>.js
+````
+
+When you change the name of the library and the prefix of the files in `src/`,
+you will also need to update the value of `LIBRARY_NAME` in `Guntfile.js`.  As
+you add module files in `src/`, you will also need to add them to
+`MODULE_LIST`, also in `Gruntfile.js`.  The areas you need to modify
+(`LIBRARY_NAME` and `MODULE_LIST`) are called out in the comments.
+
+Don't forget to update `package.json` (for [npm](https://npmjs.org/)) and
+`component.json` (for [Bower](http://twitter.github.com/bower/)) to reflect you
+and your project!
+
+## More on adding module files
 
 You can add modules to this library.  You can think of `src/library.module.js`
 as a generic module template.  Simply copy that file and modify as needed.  To
 initialize the module, add its `init` wrapper function to `src/library.init.js`
-(there's a note in the comments where to do this).  To add the module to the
-build script, add the file to `CORE_FILE_LIST`.  Make sure to reference it in
-any test files, such as `test/test.library.html`.
+(there's a note in the comments where to do this).
+
+## Roadmap
+
+Admittedly, building on top of and extending lib-tmpl is somewhat
+labor-intensive.  Eventually I'd like to write generators for creating and
+linking modules automatically.

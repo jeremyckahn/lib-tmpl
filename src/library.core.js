@@ -1,12 +1,7 @@
-// Compiler directive for UglifyJS.  This must go above the 'use strict'
-// statement below.  Feel free to add more of these.
+// Compiler directive for UglifyJS.  See library.const.js for more info.
 if (typeof DEBUG === 'undefined') {
   DEBUG = true;
 }
-
-
-// It is recommended to use strict mode to help make mistakes easier to find.
-'use strict';
 
 
 // LIBRARY-GLOBAL CONSTANTS
@@ -15,7 +10,7 @@ if (typeof DEBUG === 'undefined') {
 
 
 // GLOBAL is a reference to the global Object.
-var Fn = Function, GLOBAL = Fn('return this')();
+var Fn = Function, GLOBAL = new Fn('return this')();
 
 
 // LIBRARY-GLOBAL METHODS
@@ -38,6 +33,10 @@ function noop () { }
  * require.js, this is the global Object.
  */
 function initLibraryCore (context) {
+
+
+  // It is recommended to use strict mode to help make mistakes easier to find.
+  'use strict';
 
 
   // PRIVATE MODULE CONSTANTS
@@ -95,7 +94,7 @@ function initLibraryCore (context) {
     this.readAndWrite = 'read and write';
 
     return this;
-  }
+  };
 
 
   // LIBRARY PROTOTYPE METHODS
