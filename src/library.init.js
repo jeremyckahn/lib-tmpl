@@ -3,6 +3,7 @@ var initLibrary = function (context) {
 
   initLibraryCore(context);
   initLibraryModule(context);
+  initLibrarySubModule(context);
   // Add a similar line as above for each module that you have.  If you have a
   // module named "Awesome Module," it should live in the file
   // "src/library.awesome-module.js" with a wrapper function named
