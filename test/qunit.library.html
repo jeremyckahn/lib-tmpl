@@ -9,7 +9,7 @@
   pattern, the init file MUST be loaded last. -->
   <script src="../src/library.core.js"></script>
   <script src="../src/library.module.js"></script>
-  <script src="../src/SubModules/library.submodule.js"></script>
+  <script src="../src/submodule/library.submodule.js"></script>
   <script src="../src/library.init.js"></script>
   <script>
   </script>
@@ -46,37 +46,37 @@
            'The number provided was the number returned');
      });
 
-     module('SubModule Constructor');
+     module('Submodule Constructor');
 
-     test('Can SubModule run', function() {
+     test('Can Submodule run', function() {
         var library = new Library();
-        var submodule = new Library.SubModule();
+        var submodule = new Library.submodule();
 
-        equal(submodule.InstanceVariable, "Constructor Variable", 
+        equal(submodule.instanceVariable, 'Constructor Variable', 
           'The constructor has completed successfully');
      });
 
-     module('SubModule public method getter');
+     module('Submodule public method getter');
 
-     test('Can SubModule public method get an instance value', function() {
+     test('Can Submodule public method get an instance value', function() {
         var library = new Library();
-        var submodule = new Library.SubModule();
+        var submodule = new Library.submodule();
 
-        equal(submodule.publicMethod(), "Constructor Variable", 
+        equal(submodule.publicMethod(), 'Constructor Variable', 
           'The public method has returned the constructor variable');
      });
 
 
-     module('SubModule public method setter');
+     module('Submodule public method setter');
 
-     test('Can SubModule public method set an instance value', function() {
+     test('Can Submodule public method set an instance value', function() {
         var library = new Library();
-        var submodule = new Library.SubModule();
+        var submodule = new Library.submodule();
         var newValue = 7;
         submodule.publicMethod(newValue);
 
 
-        equal(submodule.InstanceVariable, newValue,
+        equal(submodule.instanceVariable, newValue,
           'The public method has the value set using the setter');
      });
 
