@@ -7,37 +7,37 @@
 * @constructor
 */
 function initLibrarySubmodule (context) {
-	'use strict';
+  'use strict';
 
-	var Library = context.Library;
+  var Library = context.Library;
 
-	// The submodule constructor
-	var submodule = Library.submodule = function(opt_config) {
-		
-		// defines a temporary variable, 
-		// living only as long as the constructor runs.
-		var constructorVariable = "Constructor Variable";
-		
-		// set an instance variable
-		// will be available after constructor has run. 
-		this.instanceVariable = undefined;
+  // The submodule constructor
+  var submodule = Library.submodule = function(opt_config) {
+    
+    // defines a temporary variable, 
+    // living only as long as the constructor runs.
+    var constructorVariable = "Constructor Variable";
+    
+    // set an instance variable
+    // will be available after constructor has run. 
+    this.instanceVariable = undefined;
 
-		// an optional call to the private method
-		// at the end of the construction process
-		this._privateMethod(constructorVariable);
-	};
+    // an optional call to the private method
+    // at the end of the construction process
+    this._privateMethod(constructorVariable);
+  };
 
-	// LIBRARY PROTOTYPE EXTENSIONS
-	submodule.prototype.publicMethod = function(value){
-		if (value !== undefined) {
-			this._privateMethod(value);
-		}
+  // LIBRARY PROTOTYPE EXTENSIONS
+  submodule.prototype.publicMethod = function(value){
+    if (value !== undefined) {
+      this._privateMethod(value);
+    }
 
-		return this.instanceVariable;
-	};
+    return this.instanceVariable;
+  };
 
-	// a private instance method
-	submodule.prototype._privateMethod = function(value){
-		this.instanceVariable = value;
-	};
+  // a private instance method
+  submodule.prototype._privateMethod = function(value){
+    this.instanceVariable = value;
+  };
 }
