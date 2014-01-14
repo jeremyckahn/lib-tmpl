@@ -21,7 +21,7 @@ module.exports = function(grunt) {
   // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   var MODULE_LIST = [
       sub('src/%s.module.js'),
-      sub('src/submodule/%s.js')
+      sub('src/submodule/%s.submodule.js')
     ];
 
   var DIST_HEAD_LIST = [
