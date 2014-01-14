@@ -1,4 +1,4 @@
-#SubModules
+#Submodules
 
 Use this directory to store any submodules (or hierarchy of them). 
 Submodules are similar to modules, only they do not use the same namespace as
