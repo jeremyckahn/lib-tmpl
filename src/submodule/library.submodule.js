@@ -1,17 +1,21 @@
 /**
-* submodules are similar to modules, only they do not use the same namespace as 
-* the Core, but defined a sub-namespace of their own.
-* @param {Object} The Object that the library gets attached to in
-* library.init.js.  If the library was not loaded with an AMD loader such as
-* require.js, this is the global Object.
-* @constructor
-*/
+ * submodules are similar to modules, only they do not use the same namespace as 
+ * the Core, but defined a sub-namespace of their own.
+ * @param {Object} The Object that the library gets attached to in
+ * library.init.js.  If the library was not loaded with an AMD loader such as
+ * require.js, this is the global Object.
+ */
 function initLibrarySubmodule (context) {
   'use strict';
 
   var Library = context.Library;
 
-  // The submodule constructor
+  /*
+   * The submodule constructor
+   * @param {Object} opt_config Contains any properties that should be used to
+   * configure this instance of the library.
+   * @constructor
+   */
   var submodule = Library.submodule = function(opt_config) {
     
     // defines a temporary variable, 
@@ -28,6 +32,11 @@ function initLibrarySubmodule (context) {
   };
 
   // LIBRARY PROTOTYPE EXTENSIONS
+  /**
+   * A public method of the submodule
+   * @param {object} a variable to be set to the instance variable
+   * @returns {object} the final value of the instance variable
+   */
   submodule.prototype.publicMethod = function(value){
     if (value !== undefined) {
       this._privateMethod(value);
@@ -36,8 +45,12 @@ function initLibrarySubmodule (context) {
     return this.instanceVariable;
   };
 
-  // a private instance method
+  /** 
+   * a private instance method
+   * @param {object} a variable to be set to the instance variable
+   * @returns {object} the final value of the instance variable
+   */
   submodule.prototype._privateMethod = function(value){
-    this.instanceVariable = value;
+    return this.instanceVariable = value;
   };
 }
