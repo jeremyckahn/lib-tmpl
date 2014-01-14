@@ -24,7 +24,7 @@ function initLibrarySubmodule (context) {
     
     // set an instance variable
     // will be available after constructor has run. 
-    this.instanceVariable = undefined;
+    this.instanceVariable = null;
 
     // an optional call to the private method
     // at the end of the construction process
