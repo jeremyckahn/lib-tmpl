@@ -20,7 +20,8 @@ module.exports = function(grunt) {
   // Add your modules to this list
   // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   var MODULE_LIST = [
-      sub('src/%s.module.js')
+      sub('src/%s.module.js'),
+      sub('src/submodule/%s.submodule.js')
     ];
 
   var DIST_HEAD_LIST = [
