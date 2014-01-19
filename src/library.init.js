@@ -1,4 +1,4 @@
-/*global initLibraryCore initLibraryModule */
+/*global initLibraryCore initLibraryModule initLibrarySubmodule */
 var initLibrary = function (context) {
 
   initLibraryCore(context);
