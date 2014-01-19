@@ -50,7 +50,7 @@
 
      test('Can Submodule run', function() {
         var library = new Library();
-        var submodule = new Library.submodule();
+        var submodule = new Library.Submodule();
 
         equal(submodule.instanceVariable, 'Constructor Variable', 
           'The constructor has completed successfully');
@@ -60,7 +60,7 @@
 
      test('Can Submodule public method get an instance value', function() {
         var library = new Library();
-        var submodule = new Library.submodule();
+        var submodule = new Library.Submodule();
 
         equal(submodule.publicMethod(), 'Constructor Variable', 
           'The public method has returned the constructor variable');
@@ -71,7 +71,7 @@
 
      test('Can Submodule public method set an instance value', function() {
         var library = new Library();
-        var submodule = new Library.submodule();
+        var submodule = new Library.Submodule();
         var newValue = 7;
         submodule.publicMethod(newValue);
 

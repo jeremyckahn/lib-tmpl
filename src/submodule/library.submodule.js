@@ -1,5 +1,5 @@
 /**
- * submodules are similar to modules, only they do not use the same namespace as 
+ * Submodules are similar to modules, only they do not use the same namespace as 
  * the Core, but defined a sub-namespace of their own.
  * @param {Object} The Object that the library gets attached to in
  * library.init.js.  If the library was not loaded with an AMD loader such as
@@ -16,7 +16,7 @@ function initLibrarySubmodule (context) {
    * configure this instance of the library.
    * @constructor
    */
-  var submodule = Library.submodule = function(opt_config) {
+  var submodule = Library.Submodule = function(opt_config) {
     
     // defines a temporary variable, 
     // living only as long as the constructor runs.
