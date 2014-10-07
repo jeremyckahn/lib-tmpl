@@ -1,0 +1,6 @@
+{
+  "name": "lib-tmpl",
+  "version": "0.2.1",
+  "main": "./dist/library.min.js",
+  "license": "MIT"
+}
