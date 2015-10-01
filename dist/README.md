@@ -1,6 +1,6 @@
 # Distributables
 
-Compiled files and miscellaneous assets intended to be used be used by end
+Compiled files and miscellaneous assets intended to be used by end
 users go here.  The files here should be generated from files in other
 directories.  The build process should place its outputted files in this
 directory.
